@@ -1,43 +1,15 @@
 import React from 'react';
-import './App.css';
-
-const STATUS = {
-  HOVERED: 'hovered',
-  NORMAL: 'normal'
-}
-
-class App extends React.Component{
-  constructor(props){
-    super(props);
-
-    this.state = {
-      class: STATUS.NORMAL
-    };
-
-    this._onMouseEnter = this._onMouseEnter.bind(this);
-    this._onMouseLeave = this._onMouseLeave.bind(this);
-  }
-
-  _onMouseEnter() {
-    this.setState({class: STATUS.HOVERED});
-  }
-
-  _onMouseLeave() {
-    this.setState({class: STATUS.NORMAL});
-  }
-
+import Link from './Link';
+import { Header } from './component/header';
+import './app.scss';
+class App extends React.Component { 
   render() {
     return (
-      <a
-      className={this.state.class}
-      href={this.props.page || '#'}
-      onMouseEnter={this._onMouseEnter}
-      onMouseLeave = {this._onMouseLeave}
-      >
-        {this.props.children}
-      </a>
-    );
+      <div className="App">
+        <Header />
+        {/* <Link/> */}
+      </div>
+    )
   }
-}
-
+} 
 export default App;
