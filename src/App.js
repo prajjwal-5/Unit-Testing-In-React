@@ -1,43 +1,28 @@
 import React from 'react';
-import './App.css';
+import Link from './component/Link';
+import { Header } from './component/header';
+import { HeadLine } from './component/headline';
+import './app.scss';
 
-const STATUS = {
-  HOVERED: 'hovered',
-  NORMAL: 'normal'
-}
+const users = [{
+  fName: "Prajjwal",
+  lName: "Singh",
+  email: "pra@gamil.com",
+  age: 22,
+  onlineStatus: true
+}]
 
-class App extends React.Component{
-  constructor(props){
-    super(props);
-
-    this.state = {
-      class: STATUS.NORMAL
-    };
-
-    this._onMouseEnter = this._onMouseEnter.bind(this);
-    this._onMouseLeave = this._onMouseLeave.bind(this);
-  }
-
-  _onMouseEnter() {
-    this.setState({class: STATUS.HOVERED});
-  }
-
-  _onMouseLeave() {
-    this.setState({class: STATUS.NORMAL});
-  }
-
+class App extends React.Component { 
   render() {
     return (
-      <a
-      className={this.state.class}
-      href={this.props.page || '#'}
-      onMouseEnter={this._onMouseEnter}
-      onMouseLeave = {this._onMouseLeave}
-      >
-        {this.props.children}
-      </a>
-    );
+      <div className="App">
+        <Header />
+        <section className="main-content">
+          <HeadLine header="Posts" desc="Click the button to see the posts!" users={users}/>
+        </section>
+        {/* <Link/> */}
+      </div>
+    )
   }
-}
-
+} 
 export default App;
