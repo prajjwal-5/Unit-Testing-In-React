@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from './Link';
+import Link from './component/Link';
 import { Header } from './component/header';
 import { HeadLine } from './component/headline';
 import './app.scss';
