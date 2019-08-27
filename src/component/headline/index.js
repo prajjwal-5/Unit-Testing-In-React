@@ -1,5 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import React from 'react';
+import PropTypes from 'prop-types'; 
 
 export class HeadLine extends React.Component {
 
@@ -21,3 +22,14 @@ export class HeadLine extends React.Component {
     }
 }
 
+HeadLine.propTypes = {
+    header: PropTypes.string,
+    desc: PropTypes.string,
+    users: PropTypes.arrayOf(PropTypes.shape({
+        fName: PropTypes.string,
+        lName: PropTypes.string,
+        email: PropTypes.string,
+        age: PropTypes.number,
+        onlineStatus: PropTypes.bool
+    }))
+};
